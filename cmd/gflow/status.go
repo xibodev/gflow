@@ -27,7 +27,7 @@ var statusCmd = &cobra.Command{
 			fmt.Println("No provider adapters installed.")
 			fmt.Println()
 			fmt.Printf("To install adapters, place adapter binaries in %s or on PATH.\n", adapter.AdaptersDir())
-			fmt.Println("See https://github.com/xibodev/gflow-adapters for official adapters (Gemini, Flow, MiniMax).")
+			fmt.Println("See docs/adapter-protocol.md to configure or build custom provider adapters.")
 			return nil
 		}
 

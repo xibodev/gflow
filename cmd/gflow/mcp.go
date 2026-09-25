@@ -26,11 +26,11 @@ Provider capabilities are fulfilled by installed provider adapters.`,
 		if !found {
 			return fmt.Errorf("%w: provider %q is not installed.\n"+
 				"To install adapters:\n"+
-				"  • place adapter executables (e.g. gflow-adapter-%s) in %s\n"+
+				"  • place adapter executables in %s\n"+
 				"  • or install on PATH\n"+
 				"  • or set GFLOW_ADAPTER_COMMAND=<path>\n"+
-				"See https://github.com/xibodev/gflow-adapters for official adapters",
-				application.ErrUnknownProvider, prov, prov, adapter.AdaptersDir())
+				"See docs/adapter-protocol.md to configure or build adapters.",
+				application.ErrUnknownProvider, prov, adapter.AdaptersDir())
 		}
 
 		client, err := adapter.Start(cmd.Context(), adapterConfig)

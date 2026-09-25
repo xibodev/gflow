@@ -28,11 +28,11 @@ func newMediaService(ctx context.Context, selected application.ProviderID) (*app
 	if !found {
 		return nil, nil, fmt.Errorf("%w: provider %q is not installed.\n"+
 			"To install adapters:\n"+
-			"  • place adapter executables (e.g. gflow-adapter-%s) in %s\n"+
+			"  • place adapter executables in %s\n"+
 			"  • or install on PATH\n"+
 			"  • or set GFLOW_ADAPTER_COMMAND=<path>\n"+
-			"See https://github.com/xibodev/gflow-adapters for official adapters",
-			application.ErrUnknownProvider, selected, selected, adapter.AdaptersDir())
+			"See docs/adapter-protocol.md to configure or build adapters.",
+			application.ErrUnknownProvider, selected, adapter.AdaptersDir())
 	}
 
 	client, err := adapter.Start(ctx, cfg)

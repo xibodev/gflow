@@ -47,7 +47,7 @@ func runLoginAll(cmd *cobra.Command, ctx context.Context) error {
 	discovered := adapter.DiscoverAdapters(ctx, version)
 	if len(discovered) == 0 {
 		fmt.Fprintln(cmd.OutOrStdout(), "No provider adapters installed in ~/.gflow/adapters or PATH.")
-		fmt.Fprintln(cmd.OutOrStdout(), "See https://github.com/xibodev/gflow-adapters for official adapters.")
+		fmt.Fprintln(cmd.OutOrStdout(), "See docs/adapter-protocol.md to install or write an adapter.")
 		return nil
 	}
 

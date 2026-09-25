@@ -36,15 +36,23 @@ go install github.com/xibodev/gflow/cmd/gflow@latest
 
 ### Installing Provider Adapters
 
-Install official or third-party adapters by placing their executables in `~/.gflow/adapters/` or on your `PATH`:
+Adapters are standalone executables that implement the [gflow adapter protocol](docs/adapter-protocol.md).
+Place adapter binaries in the standard directory (`~/.gflow/adapters/`) or on your system `PATH`:
 
+**Linux / macOS:**
 ```bash
-# Example: placing an adapter in the standard directory
 mkdir -p ~/.gflow/adapters
-cp gflow-adapter ~/.gflow/adapters/
+cp gflow-adapter-* ~/.gflow/adapters/
+chmod +x ~/.gflow/adapters/*
 ```
 
-Check adapter discovery and status:
+**Windows (PowerShell):**
+```powershell
+New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.gflow\adapters"
+Copy-Item gflow-adapter-*.exe "$env:USERPROFILE\.gflow\adapters\"
+```
+
+Check discovered adapters and declared capabilities:
 
 ```bash
 gflow status
